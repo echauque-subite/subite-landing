@@ -128,9 +128,9 @@ const faqs = [
       'Sí. Está pensada para trayectos repetidos como trabajo, estudio o salidas frecuentes, por eso incluye favoritos, accesos rápidos y un historial de uso.',
   },
   {
-    question: '¿Por qué extender el landing ayuda al producto?',
+    question: '¿La app muestra información actualizada durante el viaje?',
     answer:
-      'Porque permite mostrar mejor el valor de cada pantalla, bajar dudas antes de la descarga y comunicar que la app resuelve más que una simple búsqueda de líneas.',
+      'Sí. Puedes consultar alertas, cambios de recorrido y datos clave para decidir mejor antes de salir o mientras ya estás en camino.',
   },
 ];
 
@@ -343,11 +343,11 @@ export default function LandingPage() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-5">
             <Sparkles className="w-4 h-4" />
-            Una experiencia más completa
+            Funciones clave en una sola app
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-5">Un landing más largo para mostrar mejor el producto</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-5">Todo lo que necesitas para moverte mejor</h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            En lugar de quedarse en un resumen general, esta versión explica qué hace cada pantalla, cómo acompaña el viaje y por qué la app resuelve necesidades reales del día a día.
+            Desde la búsqueda de rutas hasta el seguimiento de paradas y mapas interactivos, Subite reúne herramientas pensadas para cada momento del viaje.
           </p>
         </div>
 
@@ -480,7 +480,7 @@ export default function LandingPage() {
           </div>
           <h2 className="text-4xl font-bold text-gray-900">Una experiencia que se adapta a tu rutina</h2>
           <p className="text-lg text-gray-600 mt-5 leading-relaxed">
-            Al hacer el landing más extenso, también podemos comunicar mejor lo que pasa después de la primera búsqueda: favoritos, historial, configuración y soporte.
+            Después de planificar tu ruta, también puedes guardar favoritos, ajustar notificaciones y acceder a soporte desde un perfil simple y útil.
           </p>
           <div className="space-y-5 mt-8">
             <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
@@ -492,8 +492,8 @@ export default function LandingPage() {
               <p className="text-gray-600 mt-2">Controla notificaciones, preferencias y soporte desde una interfaz clara pensada para el uso diario.</p>
             </div>
             <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-900">Más confianza para descargar</h3>
-              <p className="text-gray-600 mt-2">Mostrar estas pantallas en el landing ayuda a que la propuesta se sienta más completa, madura y real.</p>
+              <h3 className="font-semibold text-gray-900">Todo bajo control</h3>
+              <p className="text-gray-600 mt-2">Tu información frecuente, tus preferencias y la ayuda que necesitas están siempre disponibles desde un solo lugar.</p>
             </div>
           </div>
         </div>
@@ -540,7 +540,7 @@ export default function LandingPage() {
             <div>
               <h2 className="text-4xl font-bold text-gray-900">Pensada para los trayectos de todos los días</h2>
               <p className="text-lg text-gray-600 mt-4 max-w-2xl">
-                Un landing más completo también permite aterrizar el producto en situaciones reales y conectar mejor con quien está por descargar la app.
+                Ya sea para ir al trabajo, cursar o volver a casa, Subite te ayuda a moverte con más previsión y menos fricción.
               </p>
             </div>
             <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-100 text-emerald-700 rounded-full px-4 py-2 text-sm font-medium">
@@ -564,7 +564,7 @@ export default function LandingPage() {
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Preguntas frecuentes</h2>
           <p className="text-lg text-gray-600">
-            Un cierre útil para responder dudas rápidas y reforzar el valor de la propuesta.
+            Respuestas rápidas para entender cómo puede ayudarte la app desde el primer uso.
           </p>
         </div>
         <div className="space-y-5">
@@ -584,7 +584,7 @@ export default function LandingPage() {
         <div className="relative max-w-4xl mx-auto px-4 text-center z-10">
           <h2 className="text-4xl font-bold text-white mb-6">Empieza a moverte mejor hoy mismo</h2>
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Ahora el landing comunica mejor el producto completo: información útil, pantallas reales y una propuesta de valor mucho más clara para descargar.
+            Descarga Subite y consulta rutas, alertas, recorridos y servicios clave desde una sola app pensada para la movilidad diaria.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="bg-white hover:bg-gray-50 text-emerald-700 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl">
