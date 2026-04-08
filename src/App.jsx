@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Bell,
   Bike,
@@ -157,7 +157,139 @@ const toneClasses = {
   },
 };
 
+const comingSoonHref = '#/proximamente';
+
+function ComingSoonPage() {
+  const statusItems = [
+    {
+      title: 'Estamos en etapa de pruebas',
+      description: 'Estamos validando el funcionamiento general para que la experiencia de lanzamiento sea estable y clara.',
+      icon: Sparkles,
+      styles: 'bg-blue-100 text-blue-600',
+    },
+    {
+      title: 'Ajustando recorridos y alertas',
+      description: 'Seguimos afinando información clave para que rutas, tiempos y avisos respondan como esperamos.',
+      icon: Bell,
+      styles: 'bg-amber-100 text-amber-600',
+    },
+    {
+      title: 'Preparando el acceso inicial',
+      description: 'La descarga de la app y el inicio de sesión estarán habilitados cuando terminemos esta fase de testeo.',
+      icon: Shield,
+      styles: 'bg-emerald-100 text-emerald-600',
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#dbeafe,_#f8fafc_45%,_#ecfdf5_100%)] font-sans text-gray-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-emerald-600 transition-colors"
+        >
+          <ChevronRight className="w-4 h-4 rotate-180" />
+          Volver al inicio
+        </a>
+      </div>
+
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <section className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-blue-100 text-blue-700 text-sm font-medium shadow-sm">
+              <Clock3 className="w-4 h-4" />
+              Próximamente
+            </div>
+            <div className="space-y-5">
+              <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                Estamos dejando
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500">
+                  Subite a punto.
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+                La app todavía no está disponible para descarga ni acceso público. En este momento estamos testeando el funcionamiento, ajustando detalles y preparando una primera experiencia sólida.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#"
+                className="bg-gray-900 hover:bg-black text-white px-8 py-4 rounded-full font-medium transition-all inline-flex items-center justify-center gap-2 shadow-lg"
+              >
+                <ChevronRight className="w-5 h-5 rotate-180" />
+                Volver al landing
+              </a>
+              <div className="bg-white/80 border border-gray-200 text-gray-700 px-8 py-4 rounded-full font-medium inline-flex items-center justify-center gap-2 shadow-sm">
+                <Download className="w-5 h-5" />
+                Lanzamiento próximamente
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-200/70 to-emerald-200/70 rounded-[2rem] blur-3xl"></div>
+            <div className="relative bg-white/90 backdrop-blur-md border border-white rounded-[2rem] p-8 shadow-2xl">
+              <div className="rounded-[1.5rem] bg-gray-900 text-white p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-white/60">Estado</p>
+                    <p className="text-3xl font-bold mt-2">Beta privada</p>
+                  </div>
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+                    <Sparkles className="w-6 h-6 text-emerald-300" />
+                  </div>
+                </div>
+                <p className="text-white/70 mt-5 leading-relaxed">
+                  Estamos probando rendimiento, consistencia de datos y experiencia de uso antes de abrir la app al público.
+                </p>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {statusItems.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div key={item.title} className="bg-gray-50 border border-gray-100 rounded-2xl p-5">
+                      <div className="flex items-start gap-4">
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 ${item.styles}`}>
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h2 className="text-lg font-bold text-gray-900">{item.title}</h2>
+                          <p className="text-gray-600 mt-2 leading-relaxed">{item.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
 export default function LandingPage() {
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  if (currentHash === comingSoonHref) {
+    return <ComingSoonPage />;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 selection:bg-emerald-200">
       <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
@@ -189,13 +321,19 @@ export default function LandingPage() {
               </a>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="hidden md:block text-blue-500 font-medium hover:text-emerald-500 transition-colors">
+              <a
+                href={comingSoonHref}
+                className="hidden md:block text-blue-500 font-medium hover:text-emerald-500 transition-colors"
+              >
                 Iniciar sesión
-              </button>
-              <button className="bg-gradient-to-r from-blue-500 to-emerald-400 hover:from-blue-600 hover:to-emerald-500 text-white px-5 py-2 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+              </a>
+              <a
+                href={comingSoonHref}
+                className="bg-gradient-to-r from-blue-500 to-emerald-400 hover:from-blue-600 hover:to-emerald-500 text-white px-5 py-2 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+              >
                 <Download className="w-4 h-4" />
                 <span>Descargar</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -221,14 +359,20 @@ export default function LandingPage() {
             La forma más inteligente de moverte. Encuentra la mejor ruta, conoce los tiempos de llegada y mantente informado sobre desvíos, todo en una sola aplicación.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <button className="bg-gray-900 hover:bg-black text-white px-8 py-3.5 rounded-full font-medium transition-all flex items-center justify-center gap-2 shadow-lg">
+            <a
+              href={comingSoonHref}
+              className="bg-gray-900 hover:bg-black text-white px-8 py-3.5 rounded-full font-medium transition-all flex items-center justify-center gap-2 shadow-lg"
+            >
               <Download className="w-5 h-5" />
               App Store
-            </button>
-            <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 px-8 py-3.5 rounded-full font-medium transition-all flex items-center justify-center gap-2 shadow-sm">
+            </a>
+            <a
+              href={comingSoonHref}
+              className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-900 px-8 py-3.5 rounded-full font-medium transition-all flex items-center justify-center gap-2 shadow-sm"
+            >
               <Download className="w-5 h-5" />
               Google Play
-            </button>
+            </a>
           </div>
           <div className="flex items-center gap-4 pt-4 text-sm text-gray-500">
             <div className="flex -space-x-2">
@@ -587,10 +731,13 @@ export default function LandingPage() {
             Descarga Subite y consulta rutas, alertas, recorridos y servicios clave desde una sola app pensada para la movilidad diaria.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-white hover:bg-gray-50 text-emerald-700 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl">
+            <a
+              href={comingSoonHref}
+              className="bg-white hover:bg-gray-50 text-emerald-700 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl"
+            >
               <Download className="w-6 h-6" />
               Descargar app
-            </button>
+            </a>
           </div>
         </div>
       </section>
